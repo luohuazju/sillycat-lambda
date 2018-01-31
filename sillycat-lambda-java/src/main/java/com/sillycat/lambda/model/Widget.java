@@ -7,6 +7,18 @@ public class Widget
 
   private String name;
 
+  public Widget()
+  {
+    super();
+  }
+
+  public Widget( String id, String name )
+  {
+    super();
+    this.id = id;
+    this.name = name;
+  }
+
   public String getId()
   {
     return id;
