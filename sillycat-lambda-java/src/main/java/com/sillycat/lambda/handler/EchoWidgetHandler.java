@@ -11,7 +11,7 @@ public class EchoWidgetHandler implements RequestHandler<WidgetRequest, Widget>
   @Override
   public Widget handleRequest( WidgetRequest widgetRequest, Context context )
   {
-    return new Widget( widgetRequest.getId(), "My Widget " + widgetRequest.getId() );
+    return new Widget( widgetRequest.getId(), "My Widget 3 " + widgetRequest.getId() );
   }
 
 }

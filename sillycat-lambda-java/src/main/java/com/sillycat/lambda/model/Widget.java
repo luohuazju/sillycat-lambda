@@ -31,7 +31,7 @@ public class Widget
 
   public String getName()
   {
-    return name;
+    return "super" + name;
   }
 
   public void setName( String name )
