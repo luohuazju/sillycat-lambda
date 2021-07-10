@@ -19,6 +19,7 @@ serverless deploy --stage stage
 ```
 
 Invoke Lambda from Command Line
+
 ```
 serverless invoke --stage stage -f echo --data='{"name":"carl"}'
 ```
