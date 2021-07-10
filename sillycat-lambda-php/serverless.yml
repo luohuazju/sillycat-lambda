@@ -9,6 +9,11 @@ plugins:
     - ./vendor/bref/bref
 
 functions:
+    echo:
+        handler: src/EchoHandler.php
+        description: ''
+        layers:
+            - ${bref:layer.php-74}
     create-article:
         handler: src/CreateArticleHandler.php
         layers:
