@@ -1,0 +1,10 @@
+{
+	"require" : {
+		"bref/bref" : "^1.2"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"SillycatAPI\\" : "src/"
+		}
+	}
+}

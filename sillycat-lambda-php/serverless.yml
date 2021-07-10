@@ -1,0 +1,28 @@
+service: sillycatapi
+
+provider:
+    name: aws
+    region: us-east-1
+    runtime: provided.al2
+
+plugins:
+    - ./vendor/bref/bref
+
+functions:
+    create-article:
+        handler: src/CreateArticleHandler.php
+        layers:
+            - ${bref:layer.php-74}
+        events:
+            - httpApi: 'POST /articles'
+    get-article:
+        handler: src/GetArticleHandler.php
+        layers:
+            - ${bref:layer.php-74}
+        events:
+            - httpApi: 'GET /articles/{id}'
+
+# Exclude files from deployment
+package:
+    patterns:
+        - '!tests/**'

@@ -2,3 +2,7 @@ sillycat-lambda-java/.classpath
 sillycat-lambda-java/.project
 sillycat-lambda-java/.settings
 sillycat-lambda-java/target
+sillycat-lambda-php/.buildpath
+sillycat-lambda-php/.project
+sillycat-lambda-php/.settings/
+sillycat-lambda-php/vendor/
