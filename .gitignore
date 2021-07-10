@@ -6,3 +6,4 @@ sillycat-lambda-php/.buildpath
 sillycat-lambda-php/.project
 sillycat-lambda-php/.settings/
 sillycat-lambda-php/vendor/
+sillycat-lambda-php/.serverless/
