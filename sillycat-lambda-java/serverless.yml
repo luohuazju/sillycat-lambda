@@ -1,16 +1,15 @@
 service: sillycat-java-api
-frameworkVersion: ">=1.2.0 <2.0.0"
 
 provider:
   name: aws
   runtime: java8
   
 package:
-  artifact: build/distributions/aws-java-simple-http-endpoint.zip
+  artifact: target/sillycat-lambda-java.jar
 
 functions:
   echo:
-    handler: com.sillycat.lambda.handler.EchoWidgeHandler
+    handler: com.sillycat.lambda.EchoHandler
     events:
       - http:
           path: echo
