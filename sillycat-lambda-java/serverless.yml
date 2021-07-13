@@ -3,6 +3,7 @@ service: sillycat-java-api
 provider:
   name: aws
   runtime: java8
+  lambdaHashingVersion: 20201221
   
 package:
   artifact: target/sillycat-lambda-java-api-1.0.jar
@@ -20,6 +21,7 @@ functions:
       - http:
           path: articles/{id}
           method: GET
+          private: true
           request: 
             parameters: 
               paths: 
