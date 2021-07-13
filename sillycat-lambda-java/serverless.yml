@@ -5,12 +5,22 @@ provider:
   runtime: java8
   
 package:
-  artifact: target/sillycat-lambda-java.jar
+  artifact: target/sillycat-lambda-java-api-1.0.jar
 
 functions:
-  echo:
-    handler: com.sillycat.lambda.EchoHandler
+  article-post:
+    handler: com.sillycat.lambda.handler.ArticlePostHandler
     events:
       - http:
-          path: echo
-          method: get
+          path: articles
+          method: POST
+  article-get:
+    handler: com.sillycat.lambda.handler.ArticleGetHandler
+    events:
+      - http:
+          path: articles/{id}
+          method: GET
+          request: 
+            parameters: 
+              paths: 
+                id: true
