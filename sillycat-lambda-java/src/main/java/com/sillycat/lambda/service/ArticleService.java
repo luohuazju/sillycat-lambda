@@ -9,7 +9,7 @@ public class ArticleService {
 		Article item = new Article();
 		item.setAuthor("Carl");
 		item.setContent("like to use and demo with java");
-		item.setId("1");
+		item.setId(id);
 		item.setTitle("lambda and java");
 		return item;
 	}
