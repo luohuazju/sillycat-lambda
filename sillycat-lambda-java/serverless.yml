@@ -21,7 +21,7 @@ functions:
       - http:
           path: articles/{id}
           method: GET
-          private: true
+          private: false
           request: 
             parameters: 
               paths: 
