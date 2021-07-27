@@ -1,0 +1,7 @@
+{
+    "name": "sillycat-lambda-go",
+    "version": "1.0.0",
+    "description": "Build RESTful API",
+    "author": "sillycat",
+    "license": "MIT"
+}

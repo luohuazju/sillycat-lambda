@@ -1,0 +1,64 @@
+app: sillycat-lambda-go
+service: sillycat-lambda-go
+
+frameworkVersion: ">=1.1.0 <=2.1.1"
+
+provider:
+  name: aws
+  runtime: go1.x
+
+functions:
+  create:
+    handler: bin/create
+    package:
+      include:
+        - ./bin/create
+    events:
+      - http:
+          path: todos
+          method: post
+          cors: true
+
+  list:
+    handler: bin/list
+    package:
+      include:
+        - ./bin/list
+    events:
+      - http:
+          path: todos
+          method: get
+          cors: true
+
+  get:
+    handler: bin/get
+    package:
+      include:
+        - ./bin/get
+    events:
+      - http:
+          path: todos/{id}
+          method: get
+          cors: true
+
+  update:
+    handler: bin/update
+    package:
+      include:
+        - ./bin/update
+    events:
+      - http:
+          path: todos/{id}
+          method: put
+          cors: true
+
+  delete:
+    handler: bin/delete
+    package:
+      include:
+        - ./bin/deleteBin
+    events:
+      - http:
+          path: todos/{id}
+          method: delete
+          cors: true
