@@ -1,11 +1,9 @@
-package create
+package main
 
 import (
 	"encoding/json"
 	"fmt"
 	"os"
-
-	"github.com/luohuazju/sillycat-lambda/sillycat-lambda-go/common"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -33,7 +31,7 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 
 	// Unmarshal to Item to access object properties
 	itemString := request.Body
-	itemStruct := &common.Item{}
+	itemStruct := Item{}
 	json.Unmarshal([]byte(itemString), &itemStruct)
 
 	if itemStruct.Title == "" {
@@ -41,7 +39,7 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 	}
 
 	// Create new item of type item
-	item := &common.Item{
+	item := Item{
 		Id:      itemUuid,
 		Title:   itemStruct.Title,
 		Details: itemStruct.Details,
