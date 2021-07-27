@@ -1,4 +1,4 @@
-package main
+package common
 
 type Item struct {
 	Id      string `json:"id,omitempty"`
