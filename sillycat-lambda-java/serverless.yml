@@ -8,12 +8,6 @@ package:
   artifact: target/sillycat-lambda-java-api-1.0.jar
 
 functions:
-  hello:
-    handler: com.sillycat.lambda.handler.SimpleHandler
-    events:
-      - http:
-          path: hello
-          method: get
   article-post:
     handler: com.sillycat.lambda.handler.ArticlePostHandler
     events:
