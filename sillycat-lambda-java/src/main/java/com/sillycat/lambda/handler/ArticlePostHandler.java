@@ -2,10 +2,8 @@ package com.sillycat.lambda.handler;
 
 import java.util.HashMap;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPResponse;
@@ -19,14 +17,15 @@ public class ArticlePostHandler implements RequestHandler<APIGatewayV2HTTPEvent,
 
 	private ArticleService articleService = new ArticleService();
 	private Gson gson = new GsonBuilder().setPrettyPrinting().create();
-	
-	private static final Logger logger = LogManager.getLogger(ArticlePostHandler.class);
+
 
 	@Override
 	public APIGatewayV2HTTPResponse handleRequest(APIGatewayV2HTTPEvent event, Context context) {
-		logger.info("event: " + gson.toJson(event));
+		LambdaLogger logger = context.getLogger();
+		logger.log("event:" + event);
+		logger.log("event json: " + gson.toJson(event));
 		ArticleRequest request = gson.fromJson(event.getBody(), ArticleRequest.class);
-		logger.info("request: " + request);
+		logger.log("request: " + request);
 
 		Article articleRequest = new Article();
 		articleRequest.setAuthor(request.getAuthor());

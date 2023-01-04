@@ -1,10 +1,9 @@
 package com.sillycat.lambda.handler;
 
 import java.util.HashMap;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPResponse;
@@ -17,16 +16,15 @@ public class ArticleGetHandler implements RequestHandler<APIGatewayV2HTTPEvent, 
 
 	private ArticleService articleService = new ArticleService();
 	private Gson gson = new GsonBuilder().setPrettyPrinting().create();
-	private static final Logger logger = LogManager.getLogger(ArticleGetHandler.class);
 
 	@Override
 	public APIGatewayV2HTTPResponse handleRequest(APIGatewayV2HTTPEvent event, Context context) {
-		
-		logger.info("event: " + gson.toJson(event));
-		logger.info("path: " + event.getRawPath());
-		logger.info("pathParameters: " + event.getPathParameters());
+		LambdaLogger logger = context.getLogger();
+		logger.log("event: " + gson.toJson(event));
+		logger.log("path: " + event.getRawPath());
+		logger.log("pathParameters: " + event.getPathParameters());
 		String id = event.getPathParameters().get("id");
-		logger.info("id: " + id);
+		logger.log("id: " + id);
 		Article item = articleService.get(id);
 
 		APIGatewayV2HTTPResponse response = new APIGatewayV2HTTPResponse();
